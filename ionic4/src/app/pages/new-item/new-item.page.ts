@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ItemService } from '../../services/item.service';
 
+declare var window:any;
+
 @Component({
   selector: 'app-new-item',
   templateUrl: './new-item.page.html',
@@ -33,6 +35,11 @@ export class NewItemPage implements OnInit {
     this.itemService.createItem(value.title, value.description);
     this.new_item_form.reset();
     this.goBack();
+  }
+
+  ionViewDidEnter() {
+    var one = window.One;  
+    one.sendInteraction('/new-item', null);
   }
 
 }

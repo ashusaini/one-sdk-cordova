@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ItemService } from '../../services/item.service';
 
+declare var window:any;
+
 @Component({
   selector: 'app-update-item',
   templateUrl: './update-item.page.html',
@@ -49,6 +51,11 @@ export class UpdateItemPage implements OnInit {
     }
     this.itemService.updateItem(newValues);
     this.goBack();
+  }
+
+  ionViewDidEnter() {
+    var one = window.One;  
+    one.sendInteraction('/update-item', null);
   }
 
 }

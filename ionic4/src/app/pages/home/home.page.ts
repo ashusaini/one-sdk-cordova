@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemService } from '../../services/item.service';
 
+declare var window:any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -20,4 +22,9 @@ export class HomePage implements OnInit {
     this.items = this.itemService.getItems();
   }
 
+  ionViewDidEnter() {
+    var one = window.One;  
+    one.sendInteraction('/home', null);
+  }
+  
 }
