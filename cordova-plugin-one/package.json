@@ -5,7 +5,7 @@
   "homepage": "https://www.thunderhead.com/",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/thunderheadone/one-sdk-cordova"
+    "url" : "git+https://github.com/ashusaini/one-sdk-cordova/tree/master/cordova-plugin-one"
   },
   "cordova": {
     "id": "cordova-plugin-one",
