@@ -3,9 +3,9 @@
 	<name>cordova-plugin-one</name>
 	<description>One Cordova Plugin for the ONE SDK for iOS and Android</description>
 	<license>Copyright © 2020 Thunderhead. All rights reserved.</license>
-	
-	<js-module 
-		name="One" 
+
+	<js-module
+		name="One"
 		src="www/one.js">
 		<clobbers target="One" />
 	</js-module>
@@ -13,7 +13,7 @@
     <!--Plugin hooks. One plugin needs to add additional configuration to the target app build.gradle-->
     <hook type="after_plugin_install" src="hooks/after_plugin_install.js" />
     <hook type="before_plugin_uninstall" src="hooks/before_plugin_uninstall.js" />
-    
+
     <!--We need to update gradle version variable before each gradle task execution to prevent build errors-->
     <hook type="before_build" src="hooks/bump_gradle_version.js" />
     <hook type="before_clean" src="hooks/bump_gradle_version.js" />
@@ -23,9 +23,10 @@
     <hook type="before_prepare" src="hooks/bump_gradle_version.js" />
     <hook type="before_run" src="hooks/bump_gradle_version.js" />
     <hook type="before_serve" src="hooks/bump_gradle_version.js" />
-    
+
     <!-- iOS -->
     <platform name="ios">
+        <framework src="Thunderhead" type="podspec" spec="5.7.0" />
         <config-file parent="/*" target="config.xml">
             <feature name="One">
                 <param name="ios-package" value="OnePlugin" />
@@ -43,7 +44,7 @@
             </pods>
         </podspec>
     </platform>
-    
+
     <!-- Android -->
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
